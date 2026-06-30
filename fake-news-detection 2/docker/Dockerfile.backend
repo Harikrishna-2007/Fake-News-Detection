@@ -1,0 +1,63 @@
+# syntax=docker/dockerfile:1
+# ============================================================
+# Backend Dockerfile — FastAPI + ML pipeline
+# ============================================================
+FROM python:3.11-slim AS base
+
+# Prevents Python from writing .pyc files and buffers stdout, which
+# matters for seeing log output promptly with `docker compose logs -f`.
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+# System deps: gcc/build-essential are needed for some scikit-learn /
+# scipy wheels to build correctly on slim base images; curl is used by
+# the HEALTHCHECK below.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies first (separate layer) so that code
+# changes don't bust the dependency-install cache layer.
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Pre-download NLTK corpora at build time so the container doesn't need
+# network access at runtime (and so first-request latency isn't spent
+# downloading corpora).
+RUN python -c "import nltk; \
+    nltk.download('punkt', quiet=True); \
+    nltk.download('punkt_tab', quiet=True); \
+    nltk.download('stopwords', quiet=True); \
+    nltk.download('wordnet', quiet=True); \
+    nltk.download('omw-1.4', quiet=True); \
+    nltk.download('averaged_perceptron_tagger', quiet=True); \
+    nltk.download('averaged_perceptron_tagger_eng', quiet=True)"
+
+# Now copy the application code.
+COPY backend/ ./backend/
+COPY ml/ ./ml/
+
+# Ensure runtime directories exist (SQLite file location, model output).
+RUN mkdir -p backend/database ml/models
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:8000/api/health || exit 1
+
+# Train a model at container start if none exists yet, then launch the API.
+# This makes `docker compose up` work out-of-the-box on a clean clone
+# without requiring a separate manual training step.
+CMD sh -c "\
+    if [ ! -f ml/models/best_model.joblib ]; then \
+        echo 'No trained model found — running training pipeline...'; \
+        if [ ! -f ml/data/news_dataset.csv ]; then \
+            python ml/data/generate_sample_dataset.py; \
+        fi; \
+        python ml/training/train.py; \
+    fi && \
+    uvicorn backend.main:app --host 0.0.0.0 --port 8000"
