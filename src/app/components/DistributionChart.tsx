@@ -1,12 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  RadialBarChart,
-  RadialBar,
-  ResponsiveContainer,
-  Tooltip,
-} from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer, Tooltip } from 'recharts';
 
 const distributionData = [
   { name: 'Real', value: 42.1, fill: 'var(--success)' },
@@ -23,10 +18,7 @@ const CustomTooltip = ({
   if (!active || !payload || !payload.length) return null;
   const d = payload[0].payload;
   return (
-    <div
-      className="card-elevated rounded-xl px-3 py-2"
-      style={{ backgroundColor: 'var(--card)' }}
-    >
+    <div className="card-elevated rounded-xl px-3 py-2" style={{ backgroundColor: 'var(--card)' }}>
       <p className="text-xs font-600" style={{ color: 'var(--foreground)' }}>
         {d.name}: {d.value}%
       </p>
@@ -62,13 +54,14 @@ export default function DistributionChart() {
       <div className="flex items-center justify-center gap-6 mt-2">
         {distributionData.map((d) => (
           <div key={`dist-${d.name}`} className="flex items-center gap-2">
-            <span
-              className="w-3 h-3 rounded-sm"
-              style={{ backgroundColor: d.fill }}
-            />
+            <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: d.fill }} />
             <div>
-              <p className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>{d.name}</p>
-              <p className="text-sm font-700 tabular-nums" style={{ color: 'var(--foreground)' }}>{d.value}%</p>
+              <p className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>
+                {d.name}
+              </p>
+              <p className="text-sm font-700 tabular-nums" style={{ color: 'var(--foreground)' }}>
+                {d.value}%
+              </p>
             </div>
           </div>
         ))}

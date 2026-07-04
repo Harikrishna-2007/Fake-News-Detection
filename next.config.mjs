@@ -36,9 +36,7 @@ const nextConfig = {
 
       config.watchOptions = {
         ignored: ignoredPaths.length
-          ? ignoredPaths.map(
-              (p) => `**/${p.replace(/^\/+|\/+$/g, '')}/**`
-            )
+          ? ignoredPaths.map((p) => `**/${p.replace(/^\/+|\/+$/g, '')}/**`)
           : undefined,
       };
     }

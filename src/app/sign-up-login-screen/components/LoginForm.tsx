@@ -149,13 +149,27 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
                   <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
                   <line x1="1" y1="1" x2="23" y2="23" />
                 </svg>
               ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
@@ -178,19 +192,27 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
             className="w-4 h-4 rounded"
             style={{ accentColor: 'var(--primary)' }}
           />
-          <label htmlFor="rememberMe" className="text-sm" style={{ color: 'var(--muted-foreground)' }}>
+          <label
+            htmlFor="rememberMe"
+            className="text-sm"
+            style={{ color: 'var(--muted-foreground)' }}
+          >
             Remember me for 30 days
           </label>
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="btn-primary w-full py-3"
-        >
+        <button type="submit" disabled={isLoading} className="btn-primary w-full py-3">
           {isLoading ? (
             <>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="animate-spin">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="animate-spin"
+              >
                 <path d="M21 12a9 9 0 1 1-6.219-8.56" />
               </svg>
               Signing in...
@@ -202,15 +224,20 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
       </form>
 
       {/* Demo credentials */}
-      <div
-        className="rounded-xl overflow-hidden border"
-        style={{ borderColor: 'var(--border)' }}
-      >
+      <div className="rounded-xl overflow-hidden border" style={{ borderColor: 'var(--border)' }}>
         <div
           className="px-4 py-2.5 flex items-center gap-2"
           style={{ backgroundColor: 'var(--secondary)' }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ color: 'var(--primary)' }}>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            style={{ color: 'var(--primary)' }}
+          >
             <circle cx="12" cy="12" r="10" />
             <line x1="12" y1="8" x2="12" y2="12" />
             <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -239,7 +266,10 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
                   <span
                     className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-800"
                     style={{
-                      background: cred.role === 'Admin' ?'linear-gradient(135deg, var(--accent), #BE185D)' :'linear-gradient(135deg, var(--primary), #4338CA)',
+                      background:
+                        cred.role === 'Admin'
+                          ? 'linear-gradient(135deg, var(--accent), #BE185D)'
+                          : 'linear-gradient(135deg, var(--primary), #4338CA)',
                       color: 'white',
                     }}
                   >

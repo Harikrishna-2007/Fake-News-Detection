@@ -13,7 +13,9 @@ export default function AuthContent() {
       {/* Left brand panel */}
       <div
         className="hidden lg:flex lg:w-[52%] xl:w-[55%] flex-col justify-between p-10 xl:p-14 relative overflow-hidden"
-        style={{ background: 'linear-gradient(145deg, #1E1B4B 0%, #312E81 40%, #4F46E5 80%, #6366F1 100%)' }}
+        style={{
+          background: 'linear-gradient(145deg, #1E1B4B 0%, #312E81 40%, #4F46E5 80%, #6366F1 100%)',
+        }}
       >
         {/* Background decoration */}
         <div
@@ -37,10 +39,7 @@ export default function AuthContent() {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-600 mb-4"
               style={{ backgroundColor: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)' }}
             >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: '#34D399' }}
-              />
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#34D399' }} />
               ML Model v2.4.1 — Active
             </div>
             <h1 className="text-4xl xl:text-5xl font-800 text-white leading-tight">
@@ -48,9 +47,12 @@ export default function AuthContent() {
               <br />
               <span style={{ color: '#A5B4FC' }}>with AI Precision</span>
             </h1>
-            <p className="text-base mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              Submit any news article and receive an instant Real or Fake verdict
-              powered by a Scikit-learn model trained on 40,000+ verified articles.
+            <p
+              className="text-base mt-4 leading-relaxed"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
+            >
+              Submit any news article and receive an instant Real or Fake verdict powered by a
+              Scikit-learn model trained on 40,000+ verified articles.
             </p>
           </div>
 
@@ -82,7 +84,10 @@ export default function AuthContent() {
               <span
                 key={`tech-${tech}`}
                 className="px-2.5 py-1 rounded-full text-xs font-500"
-                style={{ backgroundColor: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.8)' }}
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.12)',
+                  color: 'rgba(255,255,255,0.8)',
+                }}
               >
                 {tech}
               </span>
@@ -107,10 +112,7 @@ export default function AuthContent() {
 
         <div className="w-full max-w-md">
           {/* Mode tabs */}
-          <div
-            className="flex rounded-xl p-1 mb-8"
-            style={{ backgroundColor: 'var(--muted)' }}
-          >
+          <div className="flex rounded-xl p-1 mb-8" style={{ backgroundColor: 'var(--muted)' }}>
             {(['login', 'register'] as const).map((tab) => (
               <button
                 key={`auth-tab-${tab}`}

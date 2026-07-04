@@ -131,7 +131,10 @@ export default function RecentPredictionsTable() {
   };
 
   return (
-    <div className="card-elevated rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+    <div
+      className="card-elevated rounded-xl overflow-hidden"
+      style={{ backgroundColor: 'var(--card)' }}
+    >
       <div
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-5 py-4 border-b"
         style={{ borderColor: 'var(--border)' }}
@@ -169,7 +172,11 @@ export default function RecentPredictionsTable() {
               suppressHydrationWarning
             />
           </div>
-          <Link href="/news-analysis" className="btn-primary" style={{ height: '36px', padding: '0 14px', fontSize: '13px' }}>
+          <Link
+            href="/news-analysis"
+            className="btn-primary"
+            style={{ height: '36px', padding: '0 14px', fontSize: '13px' }}
+          >
             + New Analysis
           </Link>
         </div>
@@ -179,11 +186,24 @@ export default function RecentPredictionsTable() {
         <table className="w-full min-w-[860px]">
           <thead>
             <tr style={{ borderBottom: '1px solid var(--border)' }}>
-              {['Headline', 'Label', 'Confidence', 'Risk', 'Category', 'Source', 'Date', 'Actions'].map((col) => (
+              {[
+                'Headline',
+                'Label',
+                'Confidence',
+                'Risk',
+                'Category',
+                'Source',
+                'Date',
+                'Actions',
+              ].map((col) => (
                 <th
                   key={`th-${col}`}
                   className="px-4 py-3 text-left text-xs font-600 uppercase tracking-wide"
-                  style={{ color: 'var(--muted-foreground)', letterSpacing: '0.06em', backgroundColor: 'var(--muted)' }}
+                  style={{
+                    color: 'var(--muted-foreground)',
+                    letterSpacing: '0.06em',
+                    backgroundColor: 'var(--muted)',
+                  }}
                 >
                   {col}
                 </th>
@@ -195,12 +215,22 @@ export default function RecentPredictionsTable() {
               <tr>
                 <td colSpan={8} className="px-5 py-12 text-center">
                   <div className="flex flex-col items-center gap-2">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: 'var(--muted-foreground)' }}>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      style={{ color: 'var(--muted-foreground)' }}
+                    >
                       <circle cx="11" cy="11" r="8" />
                       <path d="m21 21-4.35-4.35" />
                     </svg>
                     <p className="text-sm font-500" style={{ color: 'var(--muted-foreground)' }}>
-                      {searchTerm ? `No predictions matching "${searchTerm}"` : 'No analyses yet — submit your first article above'}
+                      {searchTerm
+                        ? `No predictions matching "${searchTerm}"`
+                        : 'No analyses yet — submit your first article above'}
                     </p>
                   </div>
                 </td>
@@ -217,7 +247,8 @@ export default function RecentPredictionsTable() {
                     transition: 'opacity 0.4s ease, background-color 150ms',
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLTableRowElement).style.backgroundColor = 'var(--secondary)';
+                    (e.currentTarget as HTMLTableRowElement).style.backgroundColor =
+                      'var(--secondary)';
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLTableRowElement).style.backgroundColor =
@@ -225,7 +256,11 @@ export default function RecentPredictionsTable() {
                   }}
                 >
                   <td className="px-4 py-3 max-w-[260px]">
-                    <p className="text-sm font-500 truncate" style={{ color: 'var(--foreground)' }} title={pred.headline}>
+                    <p
+                      className="text-sm font-500 truncate"
+                      style={{ color: 'var(--foreground)' }}
+                      title={pred.headline}
+                    >
                       {pred.headline}
                     </p>
                   </td>
@@ -234,11 +269,25 @@ export default function RecentPredictionsTable() {
                       className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-700 ${pred.label === 'REAL' ? 'badge-real' : 'badge-fake'}`}
                     >
                       {pred.label === 'REAL' ? (
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                        >
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
                       ) : (
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                        >
                           <line x1="18" y1="6" x2="6" y2="18" />
                           <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
@@ -256,11 +305,15 @@ export default function RecentPredictionsTable() {
                           className="h-full rounded-full"
                           style={{
                             width: `${pred.confidence}%`,
-                            backgroundColor: pred.label === 'REAL' ? 'var(--success)' : 'var(--danger)',
+                            backgroundColor:
+                              pred.label === 'REAL' ? 'var(--success)' : 'var(--danger)',
                           }}
                         />
                       </div>
-                      <span className="text-sm font-600 tabular-nums" style={{ color: 'var(--foreground)' }}>
+                      <span
+                        className="text-sm font-600 tabular-nums"
+                        style={{ color: 'var(--foreground)' }}
+                      >
                         {pred.confidence}%
                       </span>
                     </div>
@@ -283,7 +336,10 @@ export default function RecentPredictionsTable() {
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-xs tabular-nums" style={{ color: 'var(--muted-foreground)' }}>
+                    <span
+                      className="text-xs tabular-nums"
+                      style={{ color: 'var(--muted-foreground)' }}
+                    >
                       {pred.date}
                     </span>
                   </td>
@@ -295,16 +351,25 @@ export default function RecentPredictionsTable() {
                         className="p-1.5 rounded-lg transition-colors"
                         style={{ color: 'var(--danger)' }}
                         onMouseEnter={(e) => {
-                          (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'var(--danger-bg)';
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                            'var(--danger-bg)';
                         }}
                         onMouseLeave={(e) => {
-                          (e.currentTarget as HTMLButtonElement).style.backgroundColor = 'transparent';
+                          (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                            'transparent';
                         }}
                         title="Delete this prediction — this cannot be undone"
                         aria-label="Delete prediction"
                         suppressHydrationWarning
                       >
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <polyline points="3 6 5 6 21 6" />
                           <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
                         </svg>

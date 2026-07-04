@@ -29,7 +29,13 @@ const navItems: NavItem[] = [
     href: '/dashboard',
     icon: (
       <NavIcon>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="w-5 h-5"
+        >
           <rect x="3" y="3" width="7" height="7" rx="1" />
           <rect x="14" y="3" width="7" height="7" rx="1" />
           <rect x="14" y="14" width="7" height="7" rx="1" />
@@ -43,7 +49,13 @@ const navItems: NavItem[] = [
     href: '/news-analysis',
     icon: (
       <NavIcon>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="w-5 h-5"
+        >
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
           <path d="M11 8v6M8 11h6" />
@@ -90,12 +102,22 @@ export default function Sidebar({
         </div>
         {!collapsed && (
           <button
-            onClick={() => { onToggleCollapse(); onMobileClose(); }}
+            onClick={() => {
+              onToggleCollapse();
+              onMobileClose();
+            }}
             className="ml-auto p-1.5 rounded-lg hover:bg-muted transition-colors flex-shrink-0 lg:flex hidden"
             aria-label="Collapse sidebar"
             suppressHydrationWarning
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
@@ -107,7 +129,14 @@ export default function Sidebar({
             aria-label="Expand sidebar"
             suppressHydrationWarning
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="m9 18 6-6-6-6" />
             </svg>
           </button>
@@ -119,7 +148,14 @@ export default function Sidebar({
           aria-label="Close navigation"
           suppressHydrationWarning
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M18 6 6 18M6 6l12 12" />
           </svg>
         </button>
@@ -148,7 +184,11 @@ export default function Sidebar({
             {!collapsed && item.badge !== undefined && item.badge > 0 && (
               <span
                 className="ml-auto text-xs font-700 px-1.5 py-0.5 rounded-full"
-                style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-foreground)', fontSize: '11px' }}
+                style={{
+                  backgroundColor: 'var(--accent)',
+                  color: 'var(--accent-foreground)',
+                  fontSize: '11px',
+                }}
               >
                 {item.badge}
               </span>
@@ -158,10 +198,7 @@ export default function Sidebar({
       </nav>
 
       {/* Bottom section */}
-      <div
-        className="border-t p-3 space-y-1"
-        style={{ borderColor: 'var(--border)' }}
-      >
+      <div className="border-t p-3 space-y-1" style={{ borderColor: 'var(--border)' }}>
         {!collapsed && (
           <div
             className="flex items-center gap-3 p-2 rounded-lg"
@@ -169,7 +206,10 @@ export default function Sidebar({
           >
             <div
               className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"
-              style={{ background: 'linear-gradient(135deg, var(--primary), var(--accent))', color: 'white' }}
+              style={{
+                background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                color: 'white',
+              }}
             >
               U
             </div>
@@ -189,7 +229,13 @@ export default function Sidebar({
           title={collapsed ? 'Sign Out' : undefined}
         >
           <NavIcon>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-5 h-5"
+            >
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
               <polyline points="16 17 21 12 16 7" />
               <line x1="21" y1="12" x2="9" y2="12" />

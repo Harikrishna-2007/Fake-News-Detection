@@ -4,7 +4,10 @@ export default function AnalysisResultSkeleton() {
   return (
     <div className="space-y-4">
       {/* Main card skeleton */}
-      <div className="card-elevated rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+      <div
+        className="card-elevated rounded-xl overflow-hidden"
+        style={{ backgroundColor: 'var(--card)' }}
+      >
         <div className="px-5 py-4 flex items-center gap-3" style={{ background: 'var(--muted)' }}>
           <div className="skeleton-pulse w-10 h-10 rounded-full" />
           <div className="space-y-2">
@@ -28,14 +31,20 @@ export default function AnalysisResultSkeleton() {
         </div>
       </div>
       {/* Summary skeleton */}
-      <div className="card-elevated rounded-xl p-5 space-y-2" style={{ backgroundColor: 'var(--card)' }}>
+      <div
+        className="card-elevated rounded-xl p-5 space-y-2"
+        style={{ backgroundColor: 'var(--card)' }}
+      >
         <div className="skeleton-pulse h-4 w-32 rounded" />
         <div className="skeleton-pulse h-3 w-full rounded" />
         <div className="skeleton-pulse h-3 w-5/6 rounded" />
         <div className="skeleton-pulse h-3 w-4/6 rounded" />
       </div>
       {/* Signals skeleton */}
-      <div className="card-elevated rounded-xl p-5 space-y-3" style={{ backgroundColor: 'var(--card)' }}>
+      <div
+        className="card-elevated rounded-xl p-5 space-y-3"
+        style={{ backgroundColor: 'var(--card)' }}
+      >
         <div className="skeleton-pulse h-4 w-40 rounded" />
         {[1, 2, 3]?.map((n) => (
           <div key={`sk-sig-${n}`} className="skeleton-pulse h-10 rounded-lg" />

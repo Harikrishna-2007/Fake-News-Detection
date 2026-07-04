@@ -40,13 +40,32 @@ const CATEGORIES = [
 function mockPredict(headline: string, content: string): PredictionResult {
   const text = (headline + ' ' + content).toLowerCase();
   const fakeKeywords = [
-    'secret', 'conspiracy', 'hidden', 'exposed', 'banned', 'suppressed',
-    'alien', 'microchip', 'mind control', 'deep state', 'cover-up',
-    'miracle cure', 'they don\'t want you to know', 'shocking truth',
+    'secret',
+    'conspiracy',
+    'hidden',
+    'exposed',
+    'banned',
+    'suppressed',
+    'alien',
+    'microchip',
+    'mind control',
+    'deep state',
+    'cover-up',
+    'miracle cure',
+    "they don't want you to know",
+    'shocking truth',
   ];
   const realKeywords = [
-    'study', 'research', 'according to', 'official', 'confirmed',
-    'government', 'published', 'report', 'data shows', 'statistics',
+    'study',
+    'research',
+    'according to',
+    'official',
+    'confirmed',
+    'government',
+    'published',
+    'report',
+    'data shows',
+    'statistics',
   ];
 
   const fakeScore = fakeKeywords.filter((k) => text.includes(k)).length;
@@ -91,7 +110,9 @@ function mockPredict(headline: string, content: string): PredictionResult {
     processingTime: parseFloat((0.28 + Math.random() * 0.4).toFixed(2)),
     wordCount,
     modelVersion: 'v2.4.1-sklearn',
-    linguisticSignals: isFake ? fakeLinguistic.slice(0, fakeScore + 2) : realLinguistic.slice(0, realScore + 2),
+    linguisticSignals: isFake
+      ? fakeLinguistic.slice(0, fakeScore + 2)
+      : realLinguistic.slice(0, realScore + 2),
     summary: isFake
       ? `This article exhibits ${fakeScore} high-risk linguistic patterns commonly associated with misinformation. The model detected sensationalist framing and unverified claims with ${confidence}% confidence. Exercise extreme caution before sharing.`
       : `This article demonstrates credible journalistic characteristics including verifiable sourcing and neutral framing. The model classified it as authentic news with ${confidence}% confidence.`,
@@ -175,7 +196,10 @@ export default function NewsAnalysisContent() {
         >
           <span
             className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: 'var(--success)', boxShadow: '0 0 0 3px rgba(5,150,105,0.2)' }}
+            style={{
+              backgroundColor: 'var(--success)',
+              boxShadow: '0 0 0 3px rgba(5,150,105,0.2)',
+            }}
           />
           ML Model v2.4.1 — Online
         </div>
@@ -183,10 +207,16 @@ export default function NewsAnalysisContent() {
 
       <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 gap-6">
         {/* Left: Input form */}
-        <div className="card-elevated rounded-xl overflow-hidden" style={{ backgroundColor: 'var(--card)' }}>
+        <div
+          className="card-elevated rounded-xl overflow-hidden"
+          style={{ backgroundColor: 'var(--card)' }}
+        >
           <div
             className="px-5 py-4 border-b"
-            style={{ borderColor: 'var(--border)', background: 'linear-gradient(to right, var(--secondary), var(--card))' }}
+            style={{
+              borderColor: 'var(--border)',
+              background: 'linear-gradient(to right, var(--secondary), var(--card))',
+            }}
           >
             <h2 className="text-base font-600" style={{ color: 'var(--foreground)' }}>
               Article Input
@@ -231,10 +261,7 @@ export default function NewsAnalysisContent() {
               <p className="text-xs" style={{ color: 'var(--muted-foreground)' }}>
                 Select the news category for improved model accuracy
               </p>
-              <select
-                {...register('category')}
-                className="input-field"
-              >
+              <select {...register('category')} className="input-field">
                 {CATEGORIES.map((cat) => (
                   <option key={`cat-${cat}`} value={cat}>
                     {cat}
@@ -260,7 +287,7 @@ export default function NewsAnalysisContent() {
               <input
                 {...register('sourceUrl', {
                   pattern: {
-                    value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/i,
+                    value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/i,
                     message: 'Please enter a valid URL',
                   },
                 })}
@@ -297,7 +324,10 @@ export default function NewsAnalysisContent() {
               <textarea
                 {...register('content', {
                   required: 'Article content is required',
-                  minLength: { value: 50, message: 'Content must be at least 50 characters for accurate analysis' },
+                  minLength: {
+                    value: 50,
+                    message: 'Content must be at least 50 characters for accurate analysis',
+                  },
                   maxLength: { value: 5000, message: 'Content must be under 5000 characters' },
                   onChange: (e) => setCharCount(e.target.value.length),
                 })}
@@ -348,7 +378,14 @@ export default function NewsAnalysisContent() {
                 </>
               ) : (
                 <>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.35-4.35" />
                     <path d="M11 8v6M8 11h6" />
@@ -364,20 +401,41 @@ export default function NewsAnalysisContent() {
               style={{ borderColor: 'var(--border)', color: 'var(--muted-foreground)' }}
             >
               <span className="flex items-center gap-1">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <circle cx="12" cy="12" r="10" />
                   <path d="M12 8v4l3 3" />
                 </svg>
                 Avg. response: ~1.8s
               </span>
               <span className="flex items-center gap-1">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>
                 Scikit-learn TF-IDF + Logistic Regression
               </span>
               <span className="flex items-center gap-1">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                 </svg>
                 Accuracy: 94.7% on test set
@@ -434,8 +492,8 @@ function AnalysisIdleState() {
       </h3>
       <p className="text-sm max-w-xs" style={{ color: 'var(--muted-foreground)' }}>
         Fill in the article details on the left and click{' '}
-        <strong style={{ color: 'var(--primary)' }}>Analyze Article</strong> to get a
-        real-time REAL or FAKE prediction with confidence score.
+        <strong style={{ color: 'var(--primary)' }}>Analyze Article</strong> to get a real-time REAL
+        or FAKE prediction with confidence score.
       </p>
 
       <div className="grid grid-cols-2 gap-3 mt-8 w-full max-w-sm">

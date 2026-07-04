@@ -1,7 +1,15 @@
 'use client';
 
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 
 const weeklyData = [
   { day: 'Jun 27', real: 4, fake: 7 },
@@ -65,12 +73,22 @@ export default function WeeklyTrendChart() {
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--success)' }} />
-            <span className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>Real</span>
+            <span
+              className="w-2.5 h-2.5 rounded-full"
+              style={{ backgroundColor: 'var(--success)' }}
+            />
+            <span className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>
+              Real
+            </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--danger)' }} />
-            <span className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>Fake</span>
+            <span
+              className="w-2.5 h-2.5 rounded-full"
+              style={{ backgroundColor: 'var(--danger)' }}
+            />
+            <span className="text-xs font-500" style={{ color: 'var(--muted-foreground)' }}>
+              Fake
+            </span>
           </div>
         </div>
       </div>

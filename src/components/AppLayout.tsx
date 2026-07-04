@@ -30,9 +30,7 @@ export default function AppLayout({ children, activeRoute }: AppLayoutProps) {
         activeRoute={activeRoute}
       />
 
-      <div
-        className="flex flex-col flex-1 min-w-0 overflow-hidden transition-all duration-300"
-      >
+      <div className="flex flex-col flex-1 min-w-0 overflow-hidden transition-all duration-300">
         {/* Mobile topbar */}
         <div
           className="flex items-center justify-between px-4 py-3 border-b lg:hidden"
@@ -43,7 +41,14 @@ export default function AppLayout({ children, activeRoute }: AppLayoutProps) {
             className="p-2 rounded-lg hover:bg-muted transition-colors"
             aria-label="Open navigation"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <line x1="3" y1="6" x2="21" y2="6" />
               <line x1="3" y1="12" x2="21" y2="12" />
               <line x1="3" y1="18" x2="21" y2="18" />
@@ -54,7 +59,14 @@ export default function AppLayout({ children, activeRoute }: AppLayoutProps) {
               className="w-7 h-7 rounded-lg flex items-center justify-center"
               style={{ background: 'linear-gradient(135deg, var(--primary), var(--accent))' }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                strokeWidth="2.5"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.35-4.35" />
               </svg>
@@ -66,9 +78,7 @@ export default function AppLayout({ children, activeRoute }: AppLayoutProps) {
           <div className="w-8" />
         </div>
 
-        <main className="flex-1 overflow-y-auto scrollbar-thin">
-          {children}
-        </main>
+        <main className="flex-1 overflow-y-auto scrollbar-thin">{children}</main>
       </div>
     </div>
   );

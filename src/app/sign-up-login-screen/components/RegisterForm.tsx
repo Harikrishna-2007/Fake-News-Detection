@@ -140,7 +140,9 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
             </label>
             <select {...register('role')} className="input-field">
               {['Student', 'Researcher', 'Journalist', 'Educator', 'Other'].map((r) => (
-                <option key={`role-${r}`} value={r}>{r}</option>
+                <option key={`role-${r}`} value={r}>
+                  {r}
+                </option>
               ))}
             </select>
           </div>
@@ -177,13 +179,27 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
                   <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
                   <line x1="1" y1="1" x2="23" y2="23" />
                 </svg>
               ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
@@ -206,8 +222,7 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
             <input
               {...register('confirmPassword', {
                 required: 'Please confirm your password',
-                validate: (value) =>
-                  value === passwordValue || 'Passwords do not match',
+                validate: (value) => value === passwordValue || 'Passwords do not match',
               })}
               type={showConfirm ? 'text' : 'password'}
               placeholder="Repeat your password"
@@ -222,13 +237,27 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
               aria-label={showConfirm ? 'Hide confirm password' : 'Show confirm password'}
             >
               {showConfirm ? (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
                   <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
                   <line x1="1" y1="1" x2="23" y2="23" />
                 </svg>
               ) : (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
@@ -254,7 +283,11 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
               className="w-4 h-4 mt-0.5 rounded flex-shrink-0"
               style={{ accentColor: 'var(--primary)' }}
             />
-            <label htmlFor="agreeTerms" className="text-xs leading-relaxed" style={{ color: 'var(--muted-foreground)' }}>
+            <label
+              htmlFor="agreeTerms"
+              className="text-xs leading-relaxed"
+              style={{ color: 'var(--muted-foreground)' }}
+            >
               I agree to the{' '}
               <span className="font-600 cursor-pointer" style={{ color: 'var(--primary)' }}>
                 Terms of Service
@@ -273,11 +306,7 @@ export default function RegisterForm({ onSwitchToLogin }: Props) {
           )}
         </div>
 
-        <button
-          type="submit"
-          disabled={isLoading}
-          className="btn-primary w-full py-3"
-        >
+        <button type="submit" disabled={isLoading} className="btn-primary w-full py-3">
           {isLoading ? (
             <>
               <svg
