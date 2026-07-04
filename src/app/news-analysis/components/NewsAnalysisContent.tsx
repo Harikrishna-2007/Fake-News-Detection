@@ -54,6 +54,59 @@ function mockPredict(headline: string, content: string): PredictionResult {
     'miracle cure',
     "they don't want you to know",
     'shocking truth',
+    'secret',
+    'conspiracy',
+    'hidden',
+    'exposed',
+    'banned',
+    'suppressed',
+    'alien',
+    'microchip',
+    'mind control',
+    'deep state',
+    'cover-up',
+    'miracle cure',
+    'they dont want you to know',
+    'shocking truth',
+    'breaking',
+    'leaked',
+    'unbelievable',
+    '100% proof',
+    'government hiding',
+    'wake up',
+    'hoax',
+    'fake media',
+  "secret",
+  "conspiracy",
+  "hidden",
+  "exposed",
+  "banned",
+  "suppressed",
+  "alien",
+  "ufo",
+  "microchip",
+  "mind control",
+  "deep state",
+  "cover-up",
+  "miracle cure",
+  "shocking truth",
+  "they don't want you to know",
+  "government hiding",
+  "leaked documents",
+  "wake up",
+  "100% proof",
+  "unbelievable",
+  "fake media",
+  "hoax",
+  "breaking secret",
+  "massive cover-up",
+  "anonymous insider",
+  "secret report",
+  "censored",
+  "manipulation",
+  "propaganda",
+  "hidden agenda"
+
   ];
   const realKeywords = [
     'study',
@@ -66,13 +119,49 @@ function mockPredict(headline: string, content: string): PredictionResult {
     'report',
     'data shows',
     'statistics',
+  "study",
+  "research",
+  "according to",
+  "official",
+  "confirmed",
+  "government",
+  "published",
+  "report",
+  "data shows",
+  "statistics",
+  "survey",
+  "evidence",
+  "analysis",
+  "scientists",
+  "experts",
+  "peer reviewed",
+  "university",
+  "journal",
+  "agency",
+  "ministry",
+  "statement",
+  "investigation",
+  "findings",
+  "world health organization",
+  "reuters",
+  "associated press",
+  "bbc",
+  "cnn",
+  "court documents",
+  "public records"
+
   ];
 
   const fakeScore = fakeKeywords.filter((k) => text.includes(k)).length;
   const realScore = realKeywords.filter((k) => text.includes(k)).length;
 
   const wordCount = content.split(/\s+/).filter(Boolean).length;
-  const isFake = fakeScore > realScore || (wordCount < 20 && fakeScore > 0);
+  console.log("Fake Score:", fakeScore);
+  console.log("Real Score:", realScore);
+  const isFake =
+  fakeScore >= 2 ||
+  (fakeScore > realScore) ||
+  (wordCount < 50 && fakeScore > 0);
   const baseConfidence = isFake
     ? Math.min(99.9, 72 + fakeScore * 4.3 + Math.random() * 8)
     : Math.min(99.9, 70 + realScore * 3.8 + Math.random() * 10);

@@ -1,5 +1,32 @@
-import { redirect } from 'next/navigation';
+'use client';
 
-export default function DashboardRedirect() {
-  redirect('/');
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+import AppLayout from '@/components/AppLayout';
+import DashboardMetrics from '../components/DashboardMetrics';
+import DashboardCharts from '../components/DashboardCharts';
+import RecentPredictionsTable from '../components/RecentPredictionsTable';
+import DashboardHeader from '../components/DashboardHeader';
+export default function DashboardPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    if (!isLoggedIn) {
+      router.push('/sign-up-login-screen');
+    }
+  }, [router]);
+
+  return (
+    <AppLayout activeRoute="/dashboard">
+      <div className="px-6 lg:px-8 xl:px-10 2xl:px-12 py-6 max-w-screen-2xl mx-auto space-y-6">
+        <DashboardHeader />
+        <DashboardMetrics />
+        <DashboardCharts />
+        <RecentPredictionsTable />
+      </div>
+    </AppLayout>
+  );
 }

@@ -64,22 +64,20 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
 
     await new Promise((r) => setTimeout(r, 1400));
 
-    const isValid = DEMO_CREDENTIALS.some(
-      (c) => c.email === data.email && c.password === data.password
-    );
+    if (!data.email || !data.password) {
+  setError('password', {
+    message: 'Email and password are required',
+  });
+  setIsLoading(false);
+  return;
+  }
+localStorage.setItem('isLoggedIn', 'true');
 
-    if (!isValid) {
-      setError('password', {
-        message: 'Invalid credentials — use the demo accounts below to sign in',
-      });
-      setIsLoading(false);
-      return;
-    }
+toast.success('Signed in successfully', {
+  description: `Welcome back, ${data.email.split('@')[0]}!`,
+});
 
-    toast.success('Signed in successfully', {
-      description: `Welcome back, ${data.email.split('@')[0]}!`,
-    });
-    router.push('/');
+router.push('/dashboard');
   };
 
   const autofill = (cred: DemoCredential) => {
