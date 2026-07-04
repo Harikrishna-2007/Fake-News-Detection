@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Next.js
 
 A modern Next.js 15 application built with TypeScript and Tailwind CSS.
@@ -88,3 +89,6 @@ You can check out the [Next.js GitHub repository](https://github.com/vercel/next
 - Powered by Next.js and React
 - Styled with Tailwind CSS
 
+=======
+# Fake-News-Detection
+>>>>>>> b669f1a0575e71c919f63878b581a45deb27ec73
