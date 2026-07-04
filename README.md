@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# Fake-News-Detection
 
 # Next.js
 
@@ -96,6 +96,4 @@ You can check out the [Next.js GitHub repository](https://github.com/vercel/next
 
 =======
 
-# Fake-News-Detection
 
-> > > > > > > b669f1a0575e71c919f63878b581a45deb27ec73
