@@ -88,12 +88,22 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out the [Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🙏 Acknowledgments
+## 🎥 Project Demo Video
 
-- Built with [Rocket.new](https://rocket.new)
-- Powered by Next.js and React
-- Styled with Tailwind CSS
+Click the thumbnail below to watch the complete project demonstration.
 
-=======
+[![Fake News Detection System Demo](https://img.youtube.com/vi/Bv8lNAfoJrk/0.jpg)](https://youtu.be/Bv8lNAfoJrk)
+
+### Video Overview
+
+* Project Introduction
+* Login & Authentication
+* Dashboard
+* News Analysis Module
+* Real News Prediction
+* Fake News Prediction
+* Machine Learning Model Explanation
+* Project Conclusion
+
 
 
