@@ -11,4 +11,3 @@ export default function PredictionHistoryPage() {
     </AppLayout>
   );
 }
-

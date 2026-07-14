@@ -96,14 +96,11 @@ Click the thumbnail below to watch the complete project demonstration.
 
 ### Video Overview
 
-* Project Introduction
-* Login & Authentication
-* Dashboard
-* News Analysis Module
-* Real News Prediction
-* Fake News Prediction
-* Machine Learning Model Explanation
-* Project Conclusion
-
-
-
+- Project Introduction
+- Login & Authentication
+- Dashboard
+- News Analysis Module
+- Real News Prediction
+- Fake News Prediction
+- Machine Learning Model Explanation
+- Project Conclusion

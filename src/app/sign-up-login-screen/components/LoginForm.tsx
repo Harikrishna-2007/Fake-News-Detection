@@ -65,19 +65,19 @@ export default function LoginForm({ onSwitchToRegister }: Props) {
     await new Promise((r) => setTimeout(r, 1400));
 
     if (!data.email || !data.password) {
-  setError('password', {
-    message: 'Email and password are required',
-  });
-  setIsLoading(false);
-  return;
-  }
-localStorage.setItem('isLoggedIn', 'true');
+      setError('password', {
+        message: 'Email and password are required',
+      });
+      setIsLoading(false);
+      return;
+    }
+    localStorage.setItem('isLoggedIn', 'true');
 
-toast.success('Signed in successfully', {
-  description: `Welcome back, ${data.email.split('@')[0]}!`,
-});
+    toast.success('Signed in successfully', {
+      description: `Welcome back, ${data.email.split('@')[0]}!`,
+    });
 
-router.push('/dashboard');
+    router.push('/dashboard');
   };
 
   const autofill = (cred: DemoCredential) => {
